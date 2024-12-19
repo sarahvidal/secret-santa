@@ -9,7 +9,7 @@ Libre à vous de rajouter/ou non des fonctionnalités ...
 
 Votre mission est de réaliser la **partie UI de l'application**.
 Attention votre projet utilise la nouvelle version de [TailwindCSS 4](https://tailwindcss.com/docs/v4-beta), consultez la documentation pour plus d'informations.
-Vous pouvez également utiliser la librairie javascript [**motion.dev**](https://motion.dev) pour les animations, [lottieReact](https://lottiereact.com/components/Lottie#getting-started), ou simplement **full css** si vous le souhaitez.
+Vous pouvez également utiliser la librairie javascript [**motion.dev**](https://motion.dev) pour les animations, [lottieReact](https://lottiereact.com/components/Lottie#getting-started), ou simplement **full css** si vous le souhaitez.   
 
 ## Installation
 
