@@ -2,6 +2,8 @@
 // Il prend en props le tableau de participants : participants
 // Il prend en props une fonction pour ajouter un participant : onAddParticipant
 // Il prend en props une fonction pour supprimer un participant : onRemoveParticipant
+import Lottie from 'react-lottie';
+import sapin from "../lotties/sapin.json";
 
 import { useState } from "react";
 
@@ -21,34 +23,40 @@ export function ParticipantInput({
       setCurrentName("");
     }
   };
+  const animSapin = {
+    loop: false,
+    autoplay: true,
+    animationData: sapin,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    },
+  };
 
   return (
     <div className="space-y-4">
-      // Champs de saisie pour ajouter un participant
-      <div className="flex space-x-2">
+      <div className="flex mb-14 space-x-2">
         <input
           type="text"
-          className="input flex-grow"
+          className="input flex-grow text-gray-50"
           placeholder="Entrez un nom"
           value={currentName}
           onChange={(e) => setCurrentName(e.target.value)}
           onKeyPress={(e) => e.key === "Enter" && addParticipant()}
         />
-        <button className="button" onClick={addParticipant}>
+        <button className="button text-white" onClick={addParticipant}>
           Ajouter
         </button>
       </div>
-      // Liste des participants ajoutés
-      <ul className="space-y-2">
+      <ul className="space-y-2 flex flex-col gap-5">
         {participants.map((name, index) => (
-          <li key={index} className="list-item">
+          <li key={index} className="list-item text-white border-l pl-5 border-dore">
             {name}
             <div className="space-x-2">
               <button
-                className="text-red-500 hover:text-red-700"
+                className="text-dore hover:text-white"
                 onClick={() => onRemoveParticipant(index)}
               >
-                Supprimer
+                Supprimer le participant
               </button>
             </div>
           </li>
