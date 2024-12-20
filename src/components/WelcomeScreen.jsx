@@ -50,7 +50,6 @@ export function WelcomeScreen({ onStart }) {
 
         <Lottie options={animSapin} height={350} width={270} />
 
-
       <button
         onClick={onStart}
         className="mt-6 border rounded-full text-lg px-8 py-3 border-dore bg-white text-nuit hover:bg-gray-200"
