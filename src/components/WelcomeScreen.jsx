@@ -31,7 +31,7 @@ export function WelcomeScreen({ onStart }) {
     },
   };
   return (
-    <div className="relative flex flex-col items-center justify-between bg-nuit text-center px-4 py-30 text-white">
+    <div className="relative flex flex-col items-center justify-between bg-nuit text-center px-4 py-20 text-white">
       {/* <div className="absolute top-0 left-0 w-/3">
         <Lottie options={animEtoile} height={300} width={100} />
       </div> */}
@@ -48,9 +48,8 @@ export function WelcomeScreen({ onStart }) {
         <p className="text-lg">Organisez facilement vos échanges de cadeaux entre amis.</p>
       </div>
 
-      <div className="">
         <Lottie options={animSapin} height={350} width={270} />
-      </div>
+
 
       <button
         onClick={onStart}

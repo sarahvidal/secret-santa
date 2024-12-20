@@ -2,8 +2,6 @@
 // Il prend en props le tableau de participants : participants
 // Il prend en props une fonction pour ajouter un participant : onAddParticipant
 // Il prend en props une fonction pour supprimer un participant : onRemoveParticipant
-import Lottie from 'react-lottie';
-import sapin from "../lotties/sapin.json";
 
 import { useState } from "react";
 
@@ -22,14 +20,6 @@ export function ParticipantInput({
       // Reset du currentName
       setCurrentName("");
     }
-  };
-  const animSapin = {
-    loop: false,
-    autoplay: true,
-    animationData: sapin,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    },
   };
 
   return (
@@ -62,6 +52,7 @@ export function ParticipantInput({
           </li>
         ))}
       </ul>
+      
     </div>
   );
 }

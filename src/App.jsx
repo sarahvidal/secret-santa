@@ -2,8 +2,18 @@ import { useState } from "react";
 import { WelcomeScreen } from "./components/WelcomeScreen";
 import { ParticipantInput } from "./components/ParticipantInput";
 import { AssignmentDisplay } from "./components/AssignmentDisplay";
+import Lottie from 'react-lottie';
+import sapin from "./lotties/sapin-long.json";
 
 export default function App() {
+  const animSapin = {
+    loop: false,
+    autoplay: true,
+    animationData: sapin,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    },
+  };
   // Tableau des participants
   const [participants, setParticipants] = useState([]);
   // Tableau des assignments
@@ -51,14 +61,14 @@ export default function App() {
   };
 
   return (
-    <div className="container mx-auto py-16 px-6">
+    <div className="container h-screen px-6">
       <div className="flex items-center justify-center flex-col">
         {currentScreen === "welcome" && (
           <WelcomeScreen onStart={() => setCurrentScreen("input")} />
         )}
         {currentScreen === "input" && (
           <>
-            <div className="flex flex-col justify-center items-center gap-9">
+            <div className="flex flex-col justify-center pt-14 items-center gap-9">
               <h2 className="text-2xl font-jost border rounded-full border-dore text-white font-semibold mb-6 text-center py-3 px-5">
                 Ajoutez les participants
               </h2>
@@ -67,28 +77,33 @@ export default function App() {
                 participants={participants}
                 onRemoveParticipant={removeParticipant}
               />
-              <div className="mt-6 w-3/4">
+              <div className="flex flex-col items-center w-full bg-nuit mb-8 p-4">
                 <button
-                  className="button w-full text-nuit bg-white border border-dore rounded-full py-2 hover:bg-gray-200"
+                  className="button w-3/4 text-nuit bg-white border border-dore rounded-full py-3 mb-5 hover:bg-gray-200"
                   onClick={distributeGifts}
                 >
                   Distribuer les cadeaux
                 </button>
+                <Lottie options={animSapin} height={100} width={300} />
               </div>
+              
             </div>
           </>
         )}
         {currentScreen === "assignments" && (
           <>
-            <h2 className="text-2xl font-bold mb-6 text-center">
+          <div className="flex flex-col justify-center items-center gap-9 py-14">
+          <h2 className="text-2xl font-jost border rounded-full border-dore text-white font-semibold mb-6 text-center py-3 px-5">
               Attributions des cadeaux
             </h2>
             <AssignmentDisplay assignments={assignments} />
-            <div className="mt-6">
-              <button className="button w-full" onClick={resetApp}>
+            <div className="mt-6 w-2/4">
+              <button className="button w-full text-nuit bg-white border border-dore rounded-full py-3 hover:bg-gray-200" onClick={resetApp}>
                 Recommencer
               </button>
             </div>
+          </div>
+            
           </>
         )}
       </div>
